@@ -26,6 +26,6 @@ app.get("/api/courses/:id", (req, res) => {
 });
 // MiddleWare that uses multiple parameters
 app.get("/api/posts/:year/:month", (req, res) => {
-  // res.send(req.params);
+  // in search bar search "/api/posts/:year/:month?sortBy=name (in place of sortBy and name can be anything)"
   res.send(req.query);
 });
