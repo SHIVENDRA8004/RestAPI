@@ -24,3 +24,7 @@ app.get("/api/courses", (req, res) => {
 app.get("/api/courses/:id", (req, res) => {
   res.send("Single Course of id " + req.params.id);
 });
+// MiddleWare that uses multiple parameters
+app.get("/api/posts/:year/:month", (req, res) => {
+  res.send(req.params);
+});
