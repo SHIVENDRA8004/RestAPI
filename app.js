@@ -10,6 +10,15 @@ app.listen(port, () => {
   console.log(`Listening Started on port ${port}`);
 });
 
+// Array of Courses
+const courses = [
+  { id: 1, name: "Web Development" },
+  { id: 2, name: "DSA Self Paced" },
+  { id: 3, name: "Node Js" },
+  { id: 4, name: "Express Js" },
+  { id: 5, name: "MongoDB" },
+];
+
 // MiddleWare for route '/'
 app.get("/", (req, res) => {
   res.send("Home page");
