@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 
 // MiddleWare for all courses
 app.get("/api/courses", (req, res) => {
-  res.send("All Courses");
+  res.send(courses);
 });
 
 // MiddleWare for a single course
