@@ -31,5 +31,14 @@ app.get("/api/courses", (req, res) => {
 
 // MiddleWare for a single course
 app.get("/api/courses/:id", (req, res) => {
-  res.send("Single Course of id " + req.params.id);
+  const course = courses.find((c) => {
+    c.id === parseInt(req.params.id);
+  });
+  if (!course) {
+    res
+      .statusCode(404)
+      .send(`Hey THe Course with id ${req.params.id} did'nt exists`);
+  } else {
+    res.send(course);
+  }
 });
