@@ -31,14 +31,11 @@ app.get("/api/courses", (req, res) => {
 
 // MiddleWare for a single course
 app.get("/api/courses/:id", (req, res) => {
-  const course = courses.find((c) => {
-    c.id === parseInt(req.params.id);
-  });
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
   if (!course) {
     res
-      .statusCode(404)
-      .send(`Hey THe Course with id ${req.params.id} did'nt exists`);
-  } else {
-    res.send(course);
+      .status(404)
+      .send(`Hey the Course with id ${req.params.id} did'nt exists`);
   }
+  res.send(course);
 });
