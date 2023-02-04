@@ -39,3 +39,10 @@ app.get("/api/courses/:id", (req, res) => {
   }
   res.send(course);
 });
+// Middleware for handling Post Request
+app.post('/api/courses',(req,res)=>{
+  const course = {
+    id:courses.length+1,
+    name:
+  }
+})
