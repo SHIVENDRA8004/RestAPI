@@ -1,6 +1,7 @@
 // Requiring All Important Modules
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 // Set the Environment Variable for port no.
 const port = process.env.PORT || 3000;
