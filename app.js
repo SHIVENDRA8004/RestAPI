@@ -80,3 +80,14 @@ function courseValidate(course) {
   };
   return Joi.validate(course, schema);
 }
+
+// Middleware for handling Delete requests
+
+app.delete("/api/courses/:id", (req, res) => {
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course) {
+    res
+      .status(404)
+      .send(`Hey the Course with id ${req.params.id} did'nt exists`);
+  }
+});
