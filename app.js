@@ -76,4 +76,6 @@ app.put("/api/courses/:id", (req, res) => {
     res.status(400).send(result.error.details[0].message);
     return;
   }
+  course.name = req.body.name;
+  res.send(course);
 });
