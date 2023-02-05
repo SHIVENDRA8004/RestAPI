@@ -90,4 +90,7 @@ app.delete("/api/courses/:id", (req, res) => {
       .status(404)
       .send(`Hey the Course with id ${req.params.id} did'nt exists`);
   }
+  const index = courses.indexOf(course);
+  courses.splice(index, 1);
+  res.redirect("/api/courses");
 });
