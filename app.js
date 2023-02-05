@@ -47,6 +47,7 @@ app.post("/api/courses", (req, res) => {
     res
       .status(400)
       .send("Name is Required and Must be of Minimum 4 Characters");
+    return;
   }
   const course = {
     id: courses.length + 1,
