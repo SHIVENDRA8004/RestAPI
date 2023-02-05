@@ -79,12 +79,6 @@ function courseValidate(course) {
   };
   return Joi.validate(course, schema);
 }
-function courseExists(course) {
-  const schema = {
-    name: Joi.string().min(3).required(),
-  };
-  return Joi.validate(course, schema);
-}
 
 // Middleware for handling Delete requests
 
