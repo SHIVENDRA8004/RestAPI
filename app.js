@@ -47,13 +47,14 @@ app.post("/api/courses", (req, res) => {
   const schema = {
     name: Joi.string().min(3).required(),
   };
-
-  if (!req.body.name || req.body.name.length < 4) {
-    res
-      .status(400)
-      .send("Name is Required and Must be of Minimum 4 Characters");
-    return;
-  }
+  const result = Joi.validate(req.body, schema);
+  console.log(result);
+  // if (!req.body.name || req.body.name.length < 4) {
+  //   res
+  //     .status(400)
+  //     .send("Name is Required and Must be of Minimum 4 Characters");
+  //   return;
+  // }
   const course = {
     id: courses.length + 1,
     name: req.body.name,
