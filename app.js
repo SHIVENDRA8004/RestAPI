@@ -44,10 +44,7 @@ app.get("/api/courses/:id", (req, res) => {
 
 // Middleware for handling Post Request
 app.post("/api/courses", (req, res) => {
-  const schema = {
-    name: Joi.string().min(3).required(),
-  };
-  const result = Joi.validate(req.body, schema);
+  const result = courseValidate(req.body);
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
     return;
@@ -68,10 +65,7 @@ app.put("/api/courses/:id", (req, res) => {
       .status(404)
       .send(`Hey the Course with id ${req.params.id} did'nt exists`);
   }
-  const schema = {
-    name: Joi.string().min(3).required(),
-  };
-  const result = Joi.validate(req.body, schema);
+  const result = courseValidate(req.body);
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
     return;
@@ -79,3 +73,10 @@ app.put("/api/courses/:id", (req, res) => {
   course.name = req.body.name;
   res.send(course);
 });
+
+function courseValidate(course) {
+  const schema = {
+    name: Joi.string().min(3).required(),
+  };
+  return Joi.validate(course, schema);
+}
