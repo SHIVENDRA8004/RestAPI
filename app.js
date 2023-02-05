@@ -43,7 +43,7 @@ app.get("/api/courses/:id", (req, res) => {
 
 // Middleware for handling Post Request
 app.post("/api/courses", (req, res) => {
-  if (!req.body.name || req.body.name < 4) {
+  if (!req.body.name || req.body.name.length < 4) {
     res
       .status(400)
       .send("Name is Required and Must be of Minimum 4 Characters");
