@@ -44,9 +44,9 @@ app.get("/api/courses/:id", (req, res) => {
 
 // Middleware for handling Post Request
 app.post("/api/courses", (req, res) => {
-  const result = courseValidate(req.body);
-  if (result.error) {
-    res.status(400).send(result.error.details[0].message);
+  const { error } = courseValidate(req.body);
+  if (error) {
+    res.status(400).send(error.details[0].message);
     return;
   }
   const course = {
@@ -65,9 +65,9 @@ app.put("/api/courses/:id", (req, res) => {
       .status(404)
       .send(`Hey the Course with id ${req.params.id} did'nt exists`);
   }
-  const result = courseValidate(req.body);
-  if (result.error) {
-    res.status(400).send(result.error.details[0].message);
+  const { error } = courseValidate(req.body);
+  if (error) {
+    res.status(400).send(error.details[0].message);
     return;
   }
   course.name = req.body.name;
