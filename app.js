@@ -1,7 +1,7 @@
 // Requiring All Important Modules
 const express = require("express");
 const app = express();
-const joi = require("joi");
+const Joi = require("joi");
 app.use(express.json());
 
 // Set the Environment Variable for port no.
