@@ -44,6 +44,10 @@ app.get("/api/courses/:id", (req, res) => {
 
 // Middleware for handling Post Request
 app.post("/api/courses", (req, res) => {
+  const schema = {
+    name: Joi.string().min(3).required(),
+  };
+
   if (!req.body.name || req.body.name.length < 4) {
     res
       .status(400)
