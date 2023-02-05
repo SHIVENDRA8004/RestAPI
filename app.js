@@ -86,7 +86,7 @@ function courseValidate(course) {
 app.delete("/api/courses/:id", (req, res) => {
   const course = courses.find((c) => c.id === parseInt(req.params.id));
   if (!course) {
-    res
+    return res
       .status(404)
       .send(`Hey the Course with id ${req.params.id} did'nt exists`);
   }
